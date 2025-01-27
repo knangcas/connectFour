@@ -10,7 +10,6 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="858.0" prefWidth="1139.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="knangcas.connect4.HelloController">
    <children>
       <GridPane id="board" fx:id="c4board" gridLinesVisible="true" layoutX="194.0" layoutY="147.0" onMouseClicked="#spotClick" prefHeight="623.0" prefWidth="777.0" stylesheets="@styles/styles.css">
@@ -249,12 +248,12 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Pane id="row1" fx:id="row1" layoutX="195.0" layoutY="135.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="row2" fx:id="row2" layoutX="306.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="row3" fx:id="row3" layoutX="418.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="row4" fx:id="row4" layoutX="528.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="row5" fx:id="row5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="row6" fx:id="row6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="row7" fx:id="row7" layoutX="861.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column1" fx:id="column1" layoutX="195.0" layoutY="135.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column2" fx:id="column2" layoutX="306.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column3" fx:id="column3" layoutX="418.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column5" fx:id="column4" layoutX="528.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column6" fx:id="column5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column7" fx:id="column6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column7" fx:id="column7" layoutX="861.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
    </children>
 </AnchorPane>

@@ -55,3 +55,9 @@ jlink {
 jlinkZip {
     group = 'distribution'
 }
+
+task runApp(type: JavaExec) {
+    mainClass = 'knangcas.connect4.MainWrapper'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
