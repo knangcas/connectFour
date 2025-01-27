@@ -1,0 +1,13 @@
+
+#mainPane {
+    -fx-background-color: black;
+}
+
+#board {
+    -fx-background-color: #4f4f4f;
+}
+
+#title {
+    -fx-text-fill: white;
+
+}
