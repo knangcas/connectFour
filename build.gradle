@@ -25,8 +25,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'knangcas.connect4'
-    mainClass = 'knangcas.connect4.HelloApplication'
+    mainModule = 'knangcas.connectFour'
+    mainClass = 'knangcas.Four.HelloApplication'
 }
 
 javafx {
