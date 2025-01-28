@@ -87,19 +87,10 @@ public class ConnectBoard {
         }
     }
 
-    public void testing() {
-        for (int i = 0; i < northeastDiagonals.size(); i++) {
-            System.out.println(northeastDiagonals.get(i).toString());
-        }
-
-        for (int i = 0; i < northwestDiagonals.size(); i++) {
-
-            System.out.println(northwestDiagonals.get(i).toString());
-        }
-    }
 
 
-    public void playerMove(int playerNumber, int colNumber) {
+
+    public boolean playerMove(int playerNumber, int colNumber) {
         if (columns.get(colNumber-1).size() == 6) {
             throw new ColumnFullException("Current column is full");
         }
@@ -107,10 +98,12 @@ public class ConnectBoard {
         columns.get(colNumber-1).push(playerNumber);
         boardHash.get(lastSpot).setIsOccupied(playerNumber);
 
-        checkVictory();
+        if(checkVictory()) {
+            return true;
+        }
+
         playerTurnChange();
-
-
+        return false;
     }
 
     private int getColFromSpot(int coordinate) {
@@ -121,55 +114,81 @@ public class ConnectBoard {
     }
 
     private boolean checkVictory() {
-        //upper difference = 5;
-        //lower difference = 7;
-
-        //check vertically
         if (lastSpot - (getColFromSpot(lastSpot) * 6) <=3) {
-            checkVertically();
+            if (checkVertically()) {
+                return true;
+            }
         }
-        checkVertically();
 
-        //TODO check horizontally;
-        //TODO check diagonally down right/up left (7 difference)
-        //TODO check diagonally down left/up right (5 difference)
+        if (checkHorizontally()) {
+            return true;
+        }
 
-
-        return false;
+        return checkDiagonals();
 
     }
 
+    private boolean checkDiagonals() {
+        if (checkNortheast()) {
+            return true;
+        }
+        if (checkNorthwest()) {
+            return true;
+        }
+        return false;
+    }
 
 
-    private boolean checkLeftDownRightUp() {
+    private boolean checkNorthwest() {
         int row = lastSpot - (6 * getColFromSpot(lastSpot));
         int col = getColFromSpot(lastSpot);
         int result = 0;
 
-        //check southwest
-        int place = lastSpot - 5;
-        for (int i = col+1; i < 7; i++) {
-            if (boardHash.get(place).getIsOccupied() == playerTurn) {
-                result++;
-            }
-            place-=5;
-            if (result == 4) {
-                return true;
+        //hard coding feels awful.
+        if (lastSpot < 4 || lastSpot == 7 || lastSpot == 8 || lastSpot ==13 || lastSpot > 39 || lastSpot == 35 || lastSpot == 30 || lastSpot == 36) {
+            return false;
+        }
+
+        for (int i = 0; i < 6; i++) {
+            if (northwestDiagonals.get(i).contains(lastSpot)) {
+                return validateDiagonal(northwestDiagonals.get(i));
             }
         }
-        //check northeast
-        place = lastSpot + 5;
-        for (int i = col - 1; i > 0; i--) {
-            if (boardHash.get(place).getIsOccupied() == playerTurn) {
+        return false;
+    }
+
+    private boolean checkNortheast() {
+        int row = lastSpot - (6 * getColFromSpot(lastSpot));
+        int col = getColFromSpot(lastSpot);
+        int result = 0;
+
+        //hard coding feels awful.
+        if ((lastSpot > 3 && lastSpot < 7) || lastSpot == 11 || lastSpot == 18 || lastSpot == 12 || (lastSpot > 36 && lastSpot < 40) || lastSpot == 32 || lastSpot == 21 || lastSpot == 25) {
+            return false;
+        }
+
+        for (int i = 0; i < 6; i++) {
+            if (northeastDiagonals.get(i).contains(lastSpot)) {
+                return validateDiagonal(northwestDiagonals.get(i));
+            }
+        }
+        return false;
+    }
+
+    private boolean validateDiagonal(List<Integer> diagonal) {
+        int result = 0;
+        for (int n : diagonal) {
+            if (boardHash.get(n).getIsOccupied() == playerTurn) {
                 result++;
             }
-            place+=5;
             if (result == 4) {
                 return true;
             }
         }
         return false;
     }
+
+
 
     private boolean checkVertically() {
         int result = 0;
