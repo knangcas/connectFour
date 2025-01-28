@@ -3,8 +3,8 @@ module knangcas.connect4 {
     requires javafx.fxml;
 
 
-    opens knangcas.connect4 to javafx.fxml;
-    exports knangcas.connect4;
-    exports knangcas.connect4.model;
-    opens knangcas.connect4.model to javafx.fxml;
+    opens knangcas.connectFour to javafx.fxml;
+    exports knangcas.connectFour;
+    exports knangcas.connectFour.model;
+    opens knangcas.connectFour.model to javafx.fxml;
 }

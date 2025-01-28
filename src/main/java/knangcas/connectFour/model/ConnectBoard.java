@@ -1,6 +1,6 @@
-package knangcas.connect4.model;
+package knangcas.connectFour.model;
 
-import knangcas.connect4.exception.ColumnFullException;
+import knangcas.connectFour.exception.ColumnFullException;
 
 import java.util.ArrayList;
 import java.util.HashMap;

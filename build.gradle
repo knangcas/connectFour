@@ -57,7 +57,7 @@ jlinkZip {
 }
 
 task runApp(type: JavaExec) {
-    mainClass = 'knangcas.connect4.MainWrapper'
+    mainClass = 'knangcas.connectFour.MainWrapper'
     classpath = sourceSets.main.runtimeClasspath
     standardInput = System.in
 }

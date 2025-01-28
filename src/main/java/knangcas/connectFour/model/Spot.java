@@ -1,4 +1,4 @@
-package knangcas.connect4.model;
+package knangcas.connectFour.model;
 
 public class Spot {
 

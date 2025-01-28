@@ -1,4 +1,4 @@
-package knangcas.connect4.exception;
+package knangcas.connectFour.exception;
 
 public class ColumnFullException extends RuntimeException{
 

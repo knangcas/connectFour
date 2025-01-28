@@ -1,8 +1,6 @@
-package knangcas.connect4;
+package knangcas.connectFour;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;

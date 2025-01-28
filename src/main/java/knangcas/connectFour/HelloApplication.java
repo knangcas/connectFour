@@ -1,4 +1,4 @@
-package knangcas.connect4;
+package knangcas.connectFour;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
