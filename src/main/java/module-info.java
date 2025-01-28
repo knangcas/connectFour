@@ -5,4 +5,6 @@ module knangcas.connect4 {
 
     opens knangcas.connect4 to javafx.fxml;
     exports knangcas.connect4;
+    exports knangcas.connect4.model;
+    opens knangcas.connect4.model to javafx.fxml;
 }
