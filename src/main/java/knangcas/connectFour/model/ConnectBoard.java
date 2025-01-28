@@ -63,8 +63,9 @@ public class ConnectBoard {
             checkVertically();
         }
 
-        //check horizontally;
-
+        //TODO check horizontally;
+        //TODO check diagonally down right/up left (7 difference)
+        //TODO check diagonally down left/up right (5 difference)
 
 
         return false;
