@@ -1,4 +1,4 @@
-module knangcas.connect4 {
+module knangcas.connectFour {
     requires javafx.controls;
     requires javafx.fxml;
 
