@@ -9,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import knangcas.connectFour.exception.ColumnFullException;
 import knangcas.connectFour.model.ConnectBoard;
 
 public class HelloController {
@@ -33,38 +34,47 @@ public class HelloController {
     public void playerMove(MouseEvent mouseEvent) {
         int playerTurn = gameBoard.getPlayerTurn();
         Pane pane = (Pane) mouseEvent.getSource();
-        int colNum = Integer.parseInt(pane.getId().substring(5));
-        int rowNum = dropPiece(colNum);
+        int colNum = Integer.parseInt(pane.getId().substring(6));
+        int position = -1;
+        try {
+            position = gameBoard.dropPiece(colNum);
 
+        } catch (ColumnFullException e) {
+            System.out.println("col full exception");
+            //do an alert
+        }
+
+        dropPiece(colNum, position);
+        if (gameBoard.validate()) {
+            System.out.println(playerTurn + " wins");
+        };
 
     }
 
-    private int dropPiece(int column) {
+    private void dropPiece(int column, int row) {
         int playerTurn = gameBoard.getPlayerTurn();
-        for (int i = 5; i >= 0; i++) {
-            StackPane sP = (StackPane) getStackPane(column-1, i);
-            Circle circle = (Circle) sP.getChildren().get(0);
-            if (!circle.getFill().equals(Color.WHITE)) {
-                if (playerTurn == 1) {
-                    circle.setFill(Color.YELLOW);
-                    return i;
-                } else if (playerTurn == 2) {
-                    circle.setFill(Color.RED);
-                    return i;
-                }
 
-
-            }
+        StackPane sP = (StackPane) getStackPane(column-1, row);
+        Circle circle = (Circle) sP.getChildren().get(0);
+        if (playerTurn == 1) {
+            circle.setFill(Color.RED);
+        } else if (playerTurn == 2) {
+            circle.setFill(Color.YELLOW);
         }
-        return -1;
+
+
     }
 
     private Node getStackPane( int col, int row) {
-        for (Node node : c4board.getChildren()) {
-            if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
-                return node;
+        System.out.println(c4board.getChildren().size());
+        return c4board.getChildren().get(0);
+        /*for (Node node : c4board.getChildren()) {
+            if (node != null) {
+                if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+                    return node;
+                }
             }
-        }
-        return null;
+        }*/
+        //return null;
     }
 }

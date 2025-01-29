@@ -87,10 +87,25 @@ public class ConnectBoard {
         }
     }
 
+    public int dropPiece(int col) {
+        if (columns.get(col-1).size() == 6) {
+            throw new ColumnFullException("Current column is full");
+        }
+        columns.get(col-1).push(playerTurn);
+        lastSpot = spotConversion(col-1, columns.get(col-1).size());
+        boardHash.get(lastSpot).setIsOccupied(playerTurn);
+        playerTurnChange();
+        return 6 - columns.get(col-1).size();
+    }
 
 
 
-    public boolean playerMove(int playerNumber, int colNumber) {
+
+
+
+
+
+    public void playerMove(int playerNumber, int colNumber) {
         playerTurn = playerNumber;
         if (columns.get(colNumber-1).size() == 6) {
             throw new ColumnFullException("Current column is full");
@@ -99,12 +114,12 @@ public class ConnectBoard {
         columns.get(colNumber-1).push(playerNumber);
         boardHash.get(lastSpot).setIsOccupied(playerNumber);
 
-        if(checkVictory()) {
+        /*if(checkVictory()) {
             return true;
         }
 
         playerTurnChange();
-        return false;
+        return false;*/
     }
 
     private int getColFromSpot(int coordinate) {
@@ -112,6 +127,10 @@ public class ConnectBoard {
             return (coordinate / 6);
         }
         return (coordinate / 6) - 1;
+    }
+
+    public boolean validate() {
+        return checkVictory();
     }
 
     private boolean checkVictory() {
