@@ -81,7 +81,7 @@ public class HelloController {
             circle.setFill(Color.YELLOW);
         }
 
-        gameBoard.displayBoard();
+        //gameBoard.displayBoard();
 
 
     }

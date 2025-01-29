@@ -137,6 +137,8 @@ public class ConnectBoard {
     }
 
     private boolean checkVictory() {
+        System.out.println("Last Spot = " + lastSpot);
+
         if (lastSpot - (getColFromSpot(lastSpot) * 6) <=3) {
             if (checkVertically()) {
                 System.out.println("Vertical!");
@@ -220,11 +222,13 @@ public class ConnectBoard {
     private boolean checkVertically() {
         int result = 0;
         for (int i = lastSpot+1; i < lastSpot+4; i++) {
+            System.out.println("spot: " + i + " occupied: " + boardHash.get(i).getIsOccupied());
             if (boardHash.get(i).getIsOccupied() == playerTurn) {
+
                 result++;
             }
         }
-        return result == 4;
+        return result == 3;
     }
 
     private boolean checkHorizontally() {
