@@ -117,11 +117,13 @@ public class ConnectBoard {
     private boolean checkVictory() {
         if (lastSpot - (getColFromSpot(lastSpot) * 6) <=3) {
             if (checkVertically()) {
+                System.out.println("Vertical!");
                 return true;
             }
         }
 
         if (checkHorizontally()) {
+            System.out.println("Horizontal!");
             return true;
         }
 
@@ -131,9 +133,11 @@ public class ConnectBoard {
 
     private boolean checkDiagonals() {
         if (checkNortheast()) {
+            System.out.println("Northeast!");
             return true;
         }
         if (checkNorthwest()) {
+            System.out.println("Northwest!");
             return true;
         }
         return false;
