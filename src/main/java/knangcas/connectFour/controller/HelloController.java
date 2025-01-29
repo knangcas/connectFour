@@ -67,10 +67,6 @@ public class HelloController {
 
     private Node getStackPane( int col, int row) {
         int x = col * 6 + row;
-        System.out.println(c4board.getChildren().size());
-        System.out.println(c4board.getChildren().get(x).getClass());
-        System.out.println(GridPane.getColumnIndex(c4board.getChildren().get(x)));
-        System.out.println(GridPane.getRowIndex(c4board.getChildren().get(x)));
         return c4board.getChildren().get(x);
         /*for (Node node : c4board.getChildren()) {
             if (node != null) {

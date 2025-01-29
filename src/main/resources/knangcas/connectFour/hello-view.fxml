@@ -252,9 +252,9 @@
       <Pane id="column1" fx:id="column1" layoutX="195.0" layoutY="135.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
       <Pane id="column2" fx:id="column2" layoutX="306.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
       <Pane id="column3" fx:id="column3" layoutX="418.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column5" fx:id="column4" layoutX="528.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column6" fx:id="column5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column7" fx:id="column6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column4" fx:id="column4" layoutX="528.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column5" fx:id="column5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane id="column6" fx:id="column6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
       <Pane id="column7" fx:id="column7" layoutX="861.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
    </children>
 </AnchorPane>
