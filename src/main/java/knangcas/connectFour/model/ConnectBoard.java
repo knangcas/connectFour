@@ -91,6 +91,7 @@ public class ConnectBoard {
 
 
     public boolean playerMove(int playerNumber, int colNumber) {
+        playerTurn = playerNumber;
         if (columns.get(colNumber-1).size() == 6) {
             throw new ColumnFullException("Current column is full");
         }

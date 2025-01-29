@@ -19,15 +19,14 @@ public class VictoryTest {
     public void tearDown() { connectBoard = null;}
 
     @Test
-    public void testHorizontal() {
+    public void testSpots() {
         try {
-            assertEquals(connectBoard.playerMove(1, 1), false);
-            assertEquals(connectBoard.playerMove(2, 2), false);
-            assertEquals(connectBoard.playerMove(1, 1), false);
-            assertEquals(connectBoard.playerMove(2, 3), false);
-            assertEquals(connectBoard.playerMove(1, 1), false);
-            assertEquals(connectBoard.playerMove(2, 4), false);
-            assertEquals(connectBoard.playerMove(1, 1), true);
+            assertFalse(connectBoard.playerMove(1, 1));
+            assertFalse(connectBoard.playerMove(2, 2));
+            assertFalse(connectBoard.playerMove(1, 1));
+            assertFalse(connectBoard.playerMove(2, 3));
+            assertFalse(connectBoard.playerMove(1, 1));
+            assertFalse(connectBoard.playerMove(2, 4));
         } catch (ColumnFullException e) {
             e.printStackTrace();
         }
@@ -36,14 +35,14 @@ public class VictoryTest {
     @Test
     public void testHorizontal2() {
 
-            assertEquals(connectBoard.playerMove(1, 1), false);
-            assertEquals(connectBoard.playerMove(2, 1), false);
-            assertEquals(connectBoard.playerMove(1, 1), false);
-            assertEquals(connectBoard.playerMove(2, 1), false);
-            assertEquals(connectBoard.playerMove(1, 1), false);
-            assertEquals(connectBoard.playerMove(2, 1), false);
-            ColumnFullException thrown = assertThrows(ColumnFullException.class, () -> connectBoard.playerMove(1,1));
-            assertTrue(thrown.getMessage().equalsIgnoreCase("Current column is full"));
+        assertFalse(connectBoard.playerMove(1, 1));
+        assertFalse(connectBoard.playerMove(2, 1));
+        assertFalse(connectBoard.playerMove(1, 1));
+        assertFalse(connectBoard.playerMove(2, 1));
+        assertFalse(connectBoard.playerMove(1, 1));
+        assertFalse(connectBoard.playerMove(2, 1));
+        ColumnFullException thrown = assertThrows(ColumnFullException.class, () -> connectBoard.playerMove(1,1));
+        assertTrue(thrown.getMessage().equalsIgnoreCase("Current column is full"));
 
     }
 
