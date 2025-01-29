@@ -12,7 +12,7 @@
 
 <AnchorPane id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="858.0" prefWidth="1139.0" stylesheets="@styles/styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="knangcas.connectFour.controller.HelloController">
    <children>
-      <GridPane id="board" fx:id="c4board" layoutX="194.0" layoutY="147.0" onMouseClicked="#spotClick" prefHeight="623.0" prefWidth="777.0" stylesheets="@styles/styles.css">
+      <GridPane id="board" fx:id="c4board" gridLinesVisible="true" layoutX="194.0" layoutY="147.0" onMouseClicked="#spotClick" prefHeight="623.0" prefWidth="777.0" stylesheets="@styles/styles.css">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,47 +31,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <StackPane GridPane.rowIndex="5">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane>
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.rowIndex="1">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.columnIndex="1">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.rowIndex="2">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.rowIndex="3">
-               <children>
-                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
-               </children>
-            </StackPane>
-            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Pane prefHeight="200.0" prefWidth="200.0" />
+            <StackPane id="testID" fx:id="fxtestid" GridPane.rowIndex="5">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -81,7 +42,22 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <StackPane GridPane.rowIndex="3">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.rowIndex="2">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane>
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -91,27 +67,27 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="2">
+            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <StackPane GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <StackPane GridPane.columnIndex="1">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -121,27 +97,27 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="3">
+            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="4">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="3">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="2">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <StackPane GridPane.columnIndex="2" GridPane.rowIndex="1">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <StackPane GridPane.columnIndex="2">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -151,27 +127,27 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="4">
+            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="4">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="3">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="2">
+            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="2">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="3">
+            <StackPane GridPane.columnIndex="3" GridPane.rowIndex="1">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <StackPane GridPane.columnIndex="3">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -181,27 +157,27 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="5">
+            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="4">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="3">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="2">
+            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="2">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="3">
+            <StackPane GridPane.columnIndex="4" GridPane.rowIndex="1">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="4">
+            <StackPane GridPane.columnIndex="4">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -211,22 +187,32 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="6">
+            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="4">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="1">
+            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="3">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="2">
+            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="2">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="3">
+            <StackPane GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="5">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="5">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
@@ -236,7 +222,22 @@
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
             </StackPane>
-            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="5">
+            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="3">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="2">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="6" GridPane.rowIndex="1">
+               <children>
+                  <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
+            <StackPane GridPane.columnIndex="6">
                <children>
                   <Circle fill="WHITE" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
                </children>
