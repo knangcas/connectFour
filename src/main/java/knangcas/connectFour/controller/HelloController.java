@@ -2,6 +2,7 @@ package knangcas.connectFour.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -18,6 +19,12 @@ public class HelloController {
     @FXML
     private GridPane c4board;
 
+    @FXML
+    private Label victoryLabel;
+
+    @FXML
+    private Pane victoryPane;
+
     private ConnectBoard gameBoard;
 
 
@@ -25,6 +32,7 @@ public class HelloController {
 
     public void initialize() {
         gameBoard = new ConnectBoard();
+        victoryPane.setVisible(false);
 
     }
     public void spotClick(MouseEvent mouseEvent) {
@@ -42,6 +50,13 @@ public class HelloController {
         } catch (ColumnFullException e) {
             System.out.println("col full exception");
             //do an alert
+        }
+
+        if (position == -2) {
+            victoryLabel.setText("Player " + gameBoard.getPlayerTurn() + " wins!");
+            c4board.setVisible(false);
+            victoryPane.setVisible(true);
+
         }
 
         dropPiece(colNum, position);

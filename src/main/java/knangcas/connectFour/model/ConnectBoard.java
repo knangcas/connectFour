@@ -94,7 +94,9 @@ public class ConnectBoard {
         columns.get(col-1).push(playerTurn);
         lastSpot = spotConversion(col-1, columns.get(col-1).size());
         boardHash.get(lastSpot).setIsOccupied(playerTurn);
-        checkVictory();
+        if (checkVictory()) {
+            return -2;
+        }
         playerTurnChange();
         return columns.get(col-1).size();
     }

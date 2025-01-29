@@ -256,5 +256,14 @@
       <Pane id="column5" fx:id="column5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
       <Pane id="column6" fx:id="column6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
       <Pane id="column7" fx:id="column7" layoutX="861.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
+      <Pane fx:id="victoryPane" layoutX="41.0" layoutY="19.0" prefHeight="822.0" prefWidth="1052.0">
+         <children>
+            <Label fx:id="victoryLabel" layoutX="337.0" layoutY="385.0" text="VictoryText" textFill="WHITE">
+               <font>
+                  <Font size="86.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
