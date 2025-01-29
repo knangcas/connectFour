@@ -45,9 +45,13 @@ public class HelloController {
         }
 
         dropPiece(colNum, position);
-        if (gameBoard.validate()) {
+
+
+        /*if (gameBoard.validate()) {
             System.out.println(playerTurn + " wins");
-        };
+        }*/
+
+
 
     }
 
@@ -61,6 +65,8 @@ public class HelloController {
         } else if (playerTurn == 2) {
             circle.setFill(Color.YELLOW);
         }
+
+        gameBoard.displayBoard();
 
 
     }

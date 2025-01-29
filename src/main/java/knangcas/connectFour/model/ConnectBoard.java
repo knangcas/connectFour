@@ -29,7 +29,7 @@ public class ConnectBoard {
 
         //populate data structures
         //hardcoding this feels bad because it isn't scalable, but connect4 has defined constraints.
-        for (int i = 0; i < 6; i ++) {
+        for (int i = 0; i < 7; i ++) {
             columns.add(new Stack<Integer>());
         }
 
@@ -94,6 +94,7 @@ public class ConnectBoard {
         columns.get(col-1).push(playerTurn);
         lastSpot = spotConversion(col-1, columns.get(col-1).size());
         boardHash.get(lastSpot).setIsOccupied(playerTurn);
+        checkVictory();
         playerTurnChange();
         return columns.get(col-1).size();
     }
@@ -239,6 +240,21 @@ public class ConnectBoard {
 
         return false;
 
+    }
+
+
+    public void displayBoard() {
+
+        System.out.println("Connect4 Board--------");
+
+        System.out.println("\n 0 = free spot, 1 = player1, 2 = player2");
+        for (int i = 1; i < 7; i++) {
+            for(int j = 0; j < 7; j++) {
+                System.out.print(boardHash.get(i + (6 *j)).getIsOccupied());
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     private void playerTurnChange() {
