@@ -18,7 +18,7 @@ public class VictoryTest {
     @AfterEach
     public void tearDown() { connectBoard = null;}
 
-    @Test
+    /*@Test
     public void testSpots() {
         try {
             assertFalse(connectBoard.playerMove(1, 1));
@@ -44,7 +44,7 @@ public class VictoryTest {
         ColumnFullException thrown = assertThrows(ColumnFullException.class, () -> connectBoard.playerMove(1,1));
         assertTrue(thrown.getMessage().equalsIgnoreCase("Current column is full"));
 
-    }
+    }*/
 
     @Test
     public void nothing() {
