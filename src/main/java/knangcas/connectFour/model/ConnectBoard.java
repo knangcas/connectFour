@@ -29,7 +29,7 @@ public class ConnectBoard {
 
         //populate data structures
         //hardcoding this feels bad because it isn't scalable, but connect4 has defined constraints.
-        for (int i = 0; i < 6; i ++) {
+        for (int i = 0; i < 7; i ++) {
             columns.add(new Stack<Integer>());
         }
 
@@ -87,10 +87,28 @@ public class ConnectBoard {
         }
     }
 
+    public int dropPiece(int col) {
+        if (columns.get(col-1).size() == 6) {
+            throw new ColumnFullException("Current column is full");
+        }
+        columns.get(col-1).push(playerTurn);
+        lastSpot = spotConversion(col-1, columns.get(col-1).size());
+        boardHash.get(lastSpot).setIsOccupied(playerTurn);
+        if (checkVictory()) {
+            return -2;
+        }
+        playerTurnChange();
+        return columns.get(col-1).size();
+    }
 
 
 
-    public boolean playerMove(int playerNumber, int colNumber) {
+
+
+
+
+
+    public void playerMove(int playerNumber, int colNumber) {
         playerTurn = playerNumber;
         if (columns.get(colNumber-1).size() == 6) {
             throw new ColumnFullException("Current column is full");
@@ -99,12 +117,12 @@ public class ConnectBoard {
         columns.get(colNumber-1).push(playerNumber);
         boardHash.get(lastSpot).setIsOccupied(playerNumber);
 
-        if(checkVictory()) {
+        /*if(checkVictory()) {
             return true;
         }
 
         playerTurnChange();
-        return false;
+        return false;*/
     }
 
     private int getColFromSpot(int coordinate) {
@@ -114,14 +132,22 @@ public class ConnectBoard {
         return (coordinate / 6) - 1;
     }
 
+    public boolean validate() {
+        return checkVictory();
+    }
+
     private boolean checkVictory() {
+        System.out.println("Last Spot = " + lastSpot);
+
         if (lastSpot - (getColFromSpot(lastSpot) * 6) <=3) {
             if (checkVertically()) {
+                System.out.println("Vertical!");
                 return true;
             }
         }
 
         if (checkHorizontally()) {
+            System.out.println("Horizontal!");
             return true;
         }
 
@@ -131,9 +157,11 @@ public class ConnectBoard {
 
     private boolean checkDiagonals() {
         if (checkNortheast()) {
+            System.out.println("Northeast!");
             return true;
         }
         if (checkNorthwest()) {
+            System.out.println("Northwest!");
             return true;
         }
         return false;
@@ -194,11 +222,13 @@ public class ConnectBoard {
     private boolean checkVertically() {
         int result = 0;
         for (int i = lastSpot+1; i < lastSpot+4; i++) {
+            System.out.println("spot: " + i + " occupied: " + boardHash.get(i).getIsOccupied());
             if (boardHash.get(i).getIsOccupied() == playerTurn) {
+
                 result++;
             }
         }
-        return result == 4;
+        return result == 3;
     }
 
     private boolean checkHorizontally() {
@@ -216,6 +246,21 @@ public class ConnectBoard {
 
         return false;
 
+    }
+
+
+    public void displayBoard() {
+
+        System.out.println("Connect4 Board--------");
+
+        System.out.println("\n 0 = free spot, 1 = player1, 2 = player2");
+        for (int i = 1; i < 7; i++) {
+            for(int j = 0; j < 7; j++) {
+                System.out.print(boardHash.get(i + (6 *j)).getIsOccupied());
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
     private void playerTurnChange() {
