@@ -113,7 +113,6 @@ public class ConnectBoard {
     }
 
     private boolean checkVictory() {
-        System.out.println("Last Spot = " + lastSpot);
 
         if (lastSpot - (getColFromSpot(lastSpot) * 6) <=3) {
             if (checkVertically()) {
@@ -181,7 +180,6 @@ public class ConnectBoard {
     }
 
     private boolean validateDiagonal(List<Integer> diagonal) {
-        System.out.println(diagonal.toString());
         for (int i = 0; i < diagonal.size() - 3 ; i++) {
             int result = 0;
             for (int j = i; j < i+4; j++) {
@@ -201,7 +199,6 @@ public class ConnectBoard {
     private boolean checkVertically() {
         int result = 0;
         for (int i = lastSpot+1; i < lastSpot+4; i++) {
-            System.out.println("spot: " + i + " occupied: " + boardHash.get(i).getIsOccupied());
             if (boardHash.get(i).getIsOccupied() == playerTurn) {
 
                 result++;

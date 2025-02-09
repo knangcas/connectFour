@@ -4,18 +4,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import knangcas.connectFour.controller.HelloController;
+import knangcas.connectFour.controller.GameController;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class ConnectFourApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ConnectFourApp.class.getResource("connectFourBoard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        HelloController controller = fxmlLoader.getController();
+        GameController controller = fxmlLoader.getController();
         controller.initialize();
-        stage.setTitle("Hello!");
+        stage.setTitle("ConnectFour");
         stage.setScene(scene);
         stage.show();
     }

@@ -4,11 +4,11 @@
 }
 
 #victoryPane {
-    -fx-background-color: #00000080;
+    -fx-background-color: #000000CC;
 }
 
 #board {
-    -fx-background-color: #4f4f4f;
+    -fx-background-color: dodgerblue;
 }
 
 #title {
@@ -17,5 +17,15 @@
 }
 
 .columnSelect:hover{
+    -fx-cursor: hand;
+}
+
+.buttonVictory{
+    -fx-background-color : #e3e3e3;
+    -fx-border-width : 0px;
+    -fx-border-radius: 10%;
+}
+
+.buttonVictory:hover{
     -fx-cursor: hand;
 }

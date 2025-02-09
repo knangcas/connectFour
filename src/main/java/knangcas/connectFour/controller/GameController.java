@@ -10,13 +10,12 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import knangcas.connectFour.exception.ColumnFullException;
 import knangcas.connectFour.model.ConnectBoard;
 
-public class HelloController {
+public class GameController {
 
 
     @FXML
@@ -33,13 +32,23 @@ public class HelloController {
 
     @FXML
     private Button exitButton;
+
+    @FXML
+    private Circle playerTurnCircle;
+
+    @FXML
+    private Circle playerVictoryCircle;
     private ConnectBoard gameBoard;
+
+    private final Color PLAYER1COLOR = Color.web("#a30b00");
+    private final Color PLAYER2COLOR = Color.web("#ffc64a");
 
 
 
 
     public void initialize() {
         gameBoard = new ConnectBoard();
+        playerTurnCircle.setFill(PLAYER1COLOR);
         victoryPane.setVisible(false);
 
     }
@@ -64,21 +73,23 @@ public class HelloController {
         dropPiece(colNum, position);
 
         if (gameBoard.validate()) {
-            victoryLabel.setText("Player " + gameBoard.getPlayerTurn() + " wins!");
-            //c4board.setVisible(false);
+            victoryLabel.setText("Player Wins!");
+            if (gameBoard.getPlayerTurn() == 1) {
+                playerVictoryCircle.setFill(PLAYER1COLOR);
+            } else {
+                playerVictoryCircle.setFill(PLAYER2COLOR);
+            }
+            playerTurnCircle.setFill(Color.GRAY);
             victoryPane.setVisible(true);
 
+        } else {
+            gameBoard.playerTurnChange();
+            if (gameBoard.getPlayerTurn() == 1) {
+                playerTurnCircle.setFill(PLAYER1COLOR);
+            } else {
+                playerTurnCircle.setFill(PLAYER2COLOR);
+            }
         }
-
-        gameBoard.playerTurnChange();
-
-
-
-
-        /*if (gameBoard.validate()) {
-            System.out.println(playerTurn + " wins");
-        }*/
-
 
 
     }
@@ -89,9 +100,9 @@ public class HelloController {
         StackPane sP = (StackPane) getStackPane(column-1, row);
         Circle circle = (Circle) sP.getChildren().get(0);
         if (playerTurn == 1) {
-            circle.setFill(Color.RED);
+            circle.setFill(PLAYER1COLOR);
         } else if (playerTurn == 2) {
-            circle.setFill(Color.YELLOW);
+            circle.setFill(PLAYER2COLOR);
         }
 
         //gameBoard.displayBoard();
