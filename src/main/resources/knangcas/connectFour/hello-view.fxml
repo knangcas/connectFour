@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -249,20 +250,22 @@
             <Font size="45.0" />
          </font>
       </Label>
-      <Pane id="column1" fx:id="column1" layoutX="195.0" layoutY="135.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column2" fx:id="column2" layoutX="306.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column3" fx:id="column3" layoutX="418.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column4" fx:id="column4" layoutX="528.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column5" fx:id="column5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column6" fx:id="column6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane id="column7" fx:id="column7" layoutX="861.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" />
-      <Pane fx:id="victoryPane" layoutX="41.0" layoutY="19.0" prefHeight="822.0" prefWidth="1052.0">
+      <Pane id="column1" fx:id="column1" layoutX="195.0" layoutY="135.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="column2" fx:id="column2" layoutX="306.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="column3" fx:id="column3" layoutX="418.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="column4" fx:id="column4" layoutX="528.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="column5" fx:id="column5" layoutX="639.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="column6" fx:id="column6" layoutX="750.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="column7" fx:id="column7" layoutX="861.0" layoutY="145.0" onMouseClicked="#playerMove" prefHeight="644.0" prefWidth="108.0" styleClass="columnSelect" />
+      <Pane id="victoryPane" fx:id="victoryPane" layoutX="-1.0" layoutY="-6.0" prefHeight="868.0" prefWidth="1139.0">
          <children>
             <Label fx:id="victoryLabel" layoutX="337.0" layoutY="385.0" text="VictoryText" textFill="WHITE">
                <font>
                   <Font size="86.0" />
                </font>
             </Label>
+            <Button fx:id="restartButton" layoutX="668.0" layoutY="490.0" mnemonicParsing="false" onAction="#restartGame" text="Restart" />
+            <Button fx:id="exitButton" layoutX="668.0" layoutY="525.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="25.0" prefWidth="57.0" text="Exit" />
          </children>
       </Pane>
    </children>

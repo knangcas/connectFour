@@ -85,6 +85,7 @@ public class ConnectBoard {
             }
 
         }
+
     }
 
     public int dropPiece(int col) {
@@ -94,36 +95,11 @@ public class ConnectBoard {
         columns.get(col-1).push(playerTurn);
         lastSpot = spotConversion(col-1, columns.get(col-1).size());
         boardHash.get(lastSpot).setIsOccupied(playerTurn);
-        if (checkVictory()) {
-            return -2;
-        }
-        playerTurnChange();
+
         return columns.get(col-1).size();
     }
 
 
-
-
-
-
-
-
-    public void playerMove(int playerNumber, int colNumber) {
-        playerTurn = playerNumber;
-        if (columns.get(colNumber-1).size() == 6) {
-            throw new ColumnFullException("Current column is full");
-        }
-        lastSpot = spotConversion(colNumber-1, columns.get(colNumber-1).size());
-        columns.get(colNumber-1).push(playerNumber);
-        boardHash.get(lastSpot).setIsOccupied(playerNumber);
-
-        /*if(checkVictory()) {
-            return true;
-        }
-
-        playerTurnChange();
-        return false;*/
-    }
 
     private int getColFromSpot(int coordinate) {
         if (coordinate % 6 > 0) {
@@ -168,13 +144,31 @@ public class ConnectBoard {
     }
 
 
-    private boolean checkNorthwest() {
+    private boolean checkNortheast() {
         int row = lastSpot - (6 * getColFromSpot(lastSpot));
         int col = getColFromSpot(lastSpot);
         int result = 0;
 
         //hard coding feels awful.
         if (lastSpot < 4 || lastSpot == 7 || lastSpot == 8 || lastSpot ==13 || lastSpot > 39 || lastSpot == 35 || lastSpot == 30 || lastSpot == 36) {
+            return false;
+        }
+
+        for (int i = 0; i < 6; i++) {
+            if (northeastDiagonals.get(i).contains(lastSpot)) {
+                return validateDiagonal(northeastDiagonals.get(i));
+            }
+        }
+        return false;
+    }
+
+    private boolean checkNorthwest() {
+        int row = lastSpot - (6 * getColFromSpot(lastSpot));
+        int col = getColFromSpot(lastSpot);
+        int result = 0;
+
+        //hard coding feels awful.
+        if ((lastSpot > 3 && lastSpot < 7) || lastSpot == 11 || lastSpot == 18 || lastSpot == 12 || (lastSpot > 36 && lastSpot < 40) || lastSpot == 32 || lastSpot == 31 || lastSpot == 25) {
             return false;
         }
 
@@ -186,32 +180,17 @@ public class ConnectBoard {
         return false;
     }
 
-    private boolean checkNortheast() {
-        int row = lastSpot - (6 * getColFromSpot(lastSpot));
-        int col = getColFromSpot(lastSpot);
-        int result = 0;
-
-        //hard coding feels awful.
-        if ((lastSpot > 3 && lastSpot < 7) || lastSpot == 11 || lastSpot == 18 || lastSpot == 12 || (lastSpot > 36 && lastSpot < 40) || lastSpot == 32 || lastSpot == 21 || lastSpot == 25) {
-            return false;
-        }
-
-        for (int i = 0; i < 6; i++) {
-            if (northeastDiagonals.get(i).contains(lastSpot)) {
-                return validateDiagonal(northwestDiagonals.get(i));
-            }
-        }
-        return false;
-    }
-
     private boolean validateDiagonal(List<Integer> diagonal) {
-        int result = 0;
-        for (int n : diagonal) {
-            if (boardHash.get(n).getIsOccupied() == playerTurn) {
-                result++;
-            }
-            if (result == 4) {
-                return true;
+        System.out.println(diagonal.toString());
+        for (int i = 0; i < diagonal.size() - 3 ; i++) {
+            int result = 0;
+            for (int j = i; j < i+4; j++) {
+                if (boardHash.get(diagonal.get(j)).getIsOccupied() == playerTurn) {
+                    result++;
+                }
+                if (result == 4) {
+                    return true;
+                }
             }
         }
         return false;
@@ -234,21 +213,27 @@ public class ConnectBoard {
     private boolean checkHorizontally() {
         int col = getColFromSpot(lastSpot);
         int row = lastSpot - (col * 6);
-        int result = 0;
-        for (int i = row; i <= row + (6*6); i+=6) {
-            if (boardHash.get(i).getIsOccupied()==playerTurn) {
-                result++;
+        //int result = 0;
+        for (int i = row; i <= (row + (6*6)) - 18; i+=6) {
+            int result = 0;
+            for (int j = i; j <= i + 18; j += 6) {
+                if (boardHash.get(j).getIsOccupied() == playerTurn) {
+                    result++;
+                }
+                if (result == 4) {
+                    return true;
+                }
             }
-            if (result == 4) {
-                return true;
-            }
+
+
+
         }
-
         return false;
-
     }
 
 
+
+    //debug purposes
     public void displayBoard() {
 
         System.out.println("Connect4 Board--------");
@@ -263,7 +248,7 @@ public class ConnectBoard {
         System.out.println();
     }
 
-    private void playerTurnChange() {
+    public void playerTurnChange() {
         if (playerTurn == 1) {
             playerTurn = 2;
         } else {
@@ -280,9 +265,7 @@ public class ConnectBoard {
         return playerTurn;
     }
 
-    public void setPlayerTurn(int playerTurn) {
-        this.playerTurn = playerTurn;
-    }
+
 
 
 
