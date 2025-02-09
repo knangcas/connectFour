@@ -20,7 +20,7 @@
          </font>
       </Label>
       <Circle fx:id="playerTurnCircle" fill="RED" layoutX="822.0" layoutY="56.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <GridPane id="board" fx:id="c4board" layoutX="65.0" layoutY="100.0" onMouseClicked="#spotClick" prefHeight="623.0" prefWidth="777.0" stylesheets="@styles/styles.css">
+      <GridPane id="board" fx:id="c4board" layoutX="65.0" layoutY="100.0" prefHeight="623.0" prefWidth="777.0" stylesheets="@styles/styles.css">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

@@ -99,6 +99,10 @@ public class ConnectBoard {
         return columns.get(col-1).size();
     }
 
+    public boolean checkColumn(int col) {
+        return columns.get(col - 1).size() == 6;
+    }
+
 
 
     private int getColFromSpot(int coordinate) {

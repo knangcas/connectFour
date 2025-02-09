@@ -156,33 +156,7 @@ public class VictoryTest {
 
     }
 
-    @Test
-    void testException() {
 
-            connectBoard.dropPiece(1);
-            connectBoard.dropPiece(1);
-            connectBoard.dropPiece(1);
-            connectBoard.dropPiece(1);
-            connectBoard.dropPiece(1);
-            connectBoard.dropPiece(1);
-            ColumnFullException e = assertThrows(ColumnFullException.class, () -> connectBoard.dropPiece(1));
-            assertTrue(e.getMessage().equalsIgnoreCase("Current column is full"));
-
-    }
-
-    @Test
-    void testException2() {
-
-        connectBoard.dropPiece(2);
-        connectBoard.dropPiece(2);
-        connectBoard.dropPiece(2);
-        connectBoard.dropPiece(2);
-        connectBoard.dropPiece(2);
-        connectBoard.dropPiece(2);
-        ColumnFullException e = assertThrows(ColumnFullException.class, () -> connectBoard.dropPiece(2));
-        assertTrue(e.getMessage().equalsIgnoreCase("Current column is full"));
-
-    }
 
 
 

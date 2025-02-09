@@ -15,6 +15,9 @@ import javafx.stage.Stage;
 import knangcas.connectFour.exception.ColumnFullException;
 import knangcas.connectFour.model.ConnectBoard;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameController {
 
 
@@ -38,6 +41,31 @@ public class GameController {
 
     @FXML
     private Circle playerVictoryCircle;
+
+    @FXML
+    private Pane column1;
+
+    @FXML
+    private Pane column2;
+
+    @FXML
+    private Pane column3;
+
+    @FXML
+    private Pane column4;
+
+    @FXML
+    private Pane column5;
+
+    @FXML
+    private Pane column6;
+
+    @FXML
+    private Pane column7;
+
+    private List<Pane> columns;
+
+
     private ConnectBoard gameBoard;
 
     private final Color PLAYER1COLOR = Color.web("#a30b00");
@@ -46,13 +74,23 @@ public class GameController {
 
 
 
+
+
     public void initialize() {
+        columns = new ArrayList<>();
+        columns.add(column1);
+        columns.add(column2);
+        columns.add(column3);
+        columns.add(column4);
+        columns.add(column5);
+        columns.add(column6);
+        columns.add(column7);
+
+
+
         gameBoard = new ConnectBoard();
         playerTurnCircle.setFill(PLAYER1COLOR);
         victoryPane.setVisible(false);
-
-    }
-    public void spotClick(MouseEvent mouseEvent) {
 
     }
 
@@ -66,7 +104,9 @@ public class GameController {
 
         } catch (ColumnFullException e) {
             System.out.println("col full exception");
-            //do an alert
+        }
+        if (gameBoard.checkColumn(colNum)) {
+            columns.get(colNum-1).setVisible(false);
         }
 
 
@@ -114,30 +154,30 @@ public class GameController {
         StackPane sP;
         Circle circle;
 
-        for (int i = 1; i < 44; i++) {
+        for (int i = 1; i < 43; i++) {
             sP = (StackPane) c4board.getChildren().get(i);
             circle = (Circle) sP.getChildren().get(0);
-            circle.setFill(Color.WHITE);
+            circle.setFill(Color.web("#c9c9c9"));
         }
     }
 
     private Node getStackPane( int col, int row) {
         int x = col * 6 + row;
         return c4board.getChildren().get(x);
-        /*for (Node node : c4board.getChildren()) {
-            if (node != null) {
-                if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
-                    return node;
-                }
-            }
-        }*/
-        //return null;
     }
 
     public void restartGame(ActionEvent actionEvent) {
         gameBoard = null;
+        columns = null;
         initialize();
+        resetPanes();
         clearBoard();
+    }
+
+    private void resetPanes() {
+        for (Pane pane : columns) {
+            pane.setVisible(true);
+        }
     }
 
     public void exitGame(ActionEvent actionEvent) {
