@@ -86,8 +86,6 @@ public class ConnectBoard {
 
         }
 
-        System.out.println(northwestDiagonals.toString() + "= nwD");
-        System.out.println(northeastDiagonals.toString() + "= neD");
     }
 
     public int dropPiece(int col) {

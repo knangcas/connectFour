@@ -18,6 +18,7 @@ public class VictoryTest {
     @AfterEach
     public void tearDown() { connectBoard = null;}
 
+
     /*@Test
     public void testSpots() {
         try {

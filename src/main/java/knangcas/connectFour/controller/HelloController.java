@@ -1,7 +1,9 @@
 package knangcas.connectFour.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -10,6 +12,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import knangcas.connectFour.exception.ColumnFullException;
 import knangcas.connectFour.model.ConnectBoard;
 
@@ -25,6 +28,11 @@ public class HelloController {
     @FXML
     private Pane victoryPane;
 
+    @FXML
+    private Button restartButton;
+
+    @FXML
+    private Button exitButton;
     private ConnectBoard gameBoard;
 
 
@@ -91,6 +99,17 @@ public class HelloController {
 
     }
 
+    private void clearBoard() {
+        StackPane sP;
+        Circle circle;
+
+        for (int i = 1; i < 44; i++) {
+            sP = (StackPane) c4board.getChildren().get(i);
+            circle = (Circle) sP.getChildren().get(0);
+            circle.setFill(Color.WHITE);
+        }
+    }
+
     private Node getStackPane( int col, int row) {
         int x = col * 6 + row;
         return c4board.getChildren().get(x);
@@ -102,5 +121,16 @@ public class HelloController {
             }
         }*/
         //return null;
+    }
+
+    public void restartGame(ActionEvent actionEvent) {
+        gameBoard = null;
+        initialize();
+        clearBoard();
+    }
+
+    public void exitGame(ActionEvent actionEvent) {
+        Stage stage = (Stage)exitButton.getScene().getWindow();
+        stage.close();
     }
 }
