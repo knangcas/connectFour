@@ -54,7 +54,7 @@ public class HelloController {
 
         if (position == -2) {
             victoryLabel.setText("Player " + gameBoard.getPlayerTurn() + " wins!");
-            c4board.setVisible(false);
+            //c4board.setVisible(false);
             victoryPane.setVisible(true);
 
         }

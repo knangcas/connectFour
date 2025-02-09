@@ -3,6 +3,10 @@
     -fx-background-color: black;
 }
 
+#victoryPane {
+    -fx-background-color: #00000080;
+}
+
 #board {
     -fx-background-color: #4f4f4f;
 }
@@ -10,4 +14,8 @@
 #title {
     -fx-text-fill: white;
 
+}
+
+.columnSelect:hover{
+    -fx-cursor: hand;
 }
