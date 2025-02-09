@@ -6,11 +6,11 @@ Players take turns placing pieces on the board until a player achieves 4 consecu
 
 ### Screenshots
 
-![Screenshot1](https://github.com/knangcas/connectFour/blob/main/Screenshots/ss1.jpg?raw=true)
+![Screenshot1](https://github.com/knangcas/connectFour/blob/main/Screenshots/ss1.png?raw=true)
 
-![Screenshot2](https://github.com/knangcas/connectFour/blob/main/Screenshots/ss2.jpg?raw=true)
+![Screenshot2](https://github.com/knangcas/connectFour/blob/main/Screenshots/ss2.png?raw=true)
 
-![Screenshot3](https://github.com/knangcas/connectFour/blob/main/Screenshots/ss3.jpg?raw=true)
+![Screenshot3](https://github.com/knangcas/connectFour/blob/main/Screenshots/ss3.png?raw=true)
 
 ### Other Info
 To run, use either
