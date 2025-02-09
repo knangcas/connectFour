@@ -52,14 +52,19 @@ public class HelloController {
             //do an alert
         }
 
-        if (position == -2) {
+
+        dropPiece(colNum, position);
+
+        if (gameBoard.validate()) {
             victoryLabel.setText("Player " + gameBoard.getPlayerTurn() + " wins!");
             //c4board.setVisible(false);
             victoryPane.setVisible(true);
 
         }
 
-        dropPiece(colNum, position);
+        gameBoard.playerTurnChange();
+
+
 
 
         /*if (gameBoard.validate()) {

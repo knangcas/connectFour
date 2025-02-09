@@ -94,10 +94,10 @@ public class ConnectBoard {
         columns.get(col-1).push(playerTurn);
         lastSpot = spotConversion(col-1, columns.get(col-1).size());
         boardHash.get(lastSpot).setIsOccupied(playerTurn);
-        if (checkVictory()) {
-            return -2;
-        }
-        playerTurnChange();
+//        if (checkVictory()) {
+//            return -2;
+//        }
+
         return columns.get(col-1).size();
     }
 
@@ -263,7 +263,7 @@ public class ConnectBoard {
         System.out.println();
     }
 
-    private void playerTurnChange() {
+    public void playerTurnChange() {
         if (playerTurn == 1) {
             playerTurn = 2;
         } else {
