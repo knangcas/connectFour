@@ -32,6 +32,8 @@ public class VictoryTest {
         }
     }
 
+
+
     @Test
     public void testHorizontal2() {
 
