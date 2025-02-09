@@ -103,8 +103,6 @@ public class ConnectBoard {
         return columns.get(col - 1).size() == 6;
     }
 
-
-
     private int getColFromSpot(int coordinate) {
         if (coordinate % 6 > 0) {
             return (coordinate / 6);
@@ -199,7 +197,6 @@ public class ConnectBoard {
     }
 
 
-
     private boolean checkVertically() {
         int result = 0;
         for (int i = lastSpot+1; i < lastSpot+4; i++) {
@@ -225,9 +222,6 @@ public class ConnectBoard {
                     return true;
                 }
             }
-
-
-
         }
         return false;
     }
@@ -265,10 +259,6 @@ public class ConnectBoard {
     public int getPlayerTurn() {
         return playerTurn;
     }
-
-
-
-
 
 
 }

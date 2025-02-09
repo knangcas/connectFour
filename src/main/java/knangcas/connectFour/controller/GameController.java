@@ -65,15 +65,10 @@ public class GameController {
 
     private List<Pane> columns;
 
-
     private ConnectBoard gameBoard;
 
     private final Color PLAYER1COLOR = Color.web("#a30b00");
     private final Color PLAYER2COLOR = Color.web("#ffc64a");
-
-
-
-
 
 
     public void initialize() {
@@ -85,17 +80,12 @@ public class GameController {
         columns.add(column5);
         columns.add(column6);
         columns.add(column7);
-
-
-
         gameBoard = new ConnectBoard();
         playerTurnCircle.setFill(PLAYER1COLOR);
         victoryPane.setVisible(false);
-
     }
 
     public void playerMove(MouseEvent mouseEvent) {
-        int playerTurn = gameBoard.getPlayerTurn();
         Pane pane = (Pane) mouseEvent.getSource();
         int colNum = Integer.parseInt(pane.getId().substring(6));
         int position = -1;
@@ -147,7 +137,6 @@ public class GameController {
 
         //gameBoard.displayBoard();
 
-
     }
 
     private void clearBoard() {
@@ -166,7 +155,7 @@ public class GameController {
         return c4board.getChildren().get(x);
     }
 
-    public void restartGame(ActionEvent actionEvent) {
+    public void restartGame() {
         gameBoard = null;
         columns = null;
         initialize();
@@ -180,7 +169,7 @@ public class GameController {
         }
     }
 
-    public void exitGame(ActionEvent actionEvent) {
+    public void exitGame() {
         Stage stage = (Stage)exitButton.getScene().getWindow();
         stage.close();
     }
