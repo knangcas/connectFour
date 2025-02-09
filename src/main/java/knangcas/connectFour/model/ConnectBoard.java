@@ -95,36 +95,11 @@ public class ConnectBoard {
         columns.get(col-1).push(playerTurn);
         lastSpot = spotConversion(col-1, columns.get(col-1).size());
         boardHash.get(lastSpot).setIsOccupied(playerTurn);
-//        if (checkVictory()) {
-//            return -2;
-//        }
 
         return columns.get(col-1).size();
     }
 
 
-
-
-
-
-
-
-    public void playerMove(int playerNumber, int colNumber) {
-        playerTurn = playerNumber;
-        if (columns.get(colNumber-1).size() == 6) {
-            throw new ColumnFullException("Current column is full");
-        }
-        lastSpot = spotConversion(colNumber-1, columns.get(colNumber-1).size());
-        columns.get(colNumber-1).push(playerNumber);
-        boardHash.get(lastSpot).setIsOccupied(playerNumber);
-
-        /*if(checkVictory()) {
-            return true;
-        }
-
-        playerTurnChange();
-        return false;*/
-    }
 
     private int getColFromSpot(int coordinate) {
         if (coordinate % 6 > 0) {
@@ -219,15 +194,6 @@ public class ConnectBoard {
             }
         }
         return false;
-//        for (int n : diagonal) {
-//            if (boardHash.get(n).getIsOccupied() == playerTurn) {
-//                result++;
-//            }
-//            if (result == 4) {
-//                return true;
-//            }
-//        }
-        //return false;
     }
 
 
@@ -247,21 +213,27 @@ public class ConnectBoard {
     private boolean checkHorizontally() {
         int col = getColFromSpot(lastSpot);
         int row = lastSpot - (col * 6);
-        int result = 0;
-        for (int i = row; i <= row + (6*6); i+=6) {
-            if (boardHash.get(i).getIsOccupied()==playerTurn) {
-                result++;
+        //int result = 0;
+        for (int i = row; i <= (row + (6*6)) - 18; i+=6) {
+            int result = 0;
+            for (int j = i; j <= i + 18; j += 6) {
+                if (boardHash.get(j).getIsOccupied() == playerTurn) {
+                    result++;
+                }
+                if (result == 4) {
+                    return true;
+                }
             }
-            if (result == 4) {
-                return true;
-            }
+
+
+
         }
-
         return false;
-
     }
 
 
+
+    //debug purposes
     public void displayBoard() {
 
         System.out.println("Connect4 Board--------");
@@ -293,9 +265,7 @@ public class ConnectBoard {
         return playerTurn;
     }
 
-    public void setPlayerTurn(int playerTurn) {
-        this.playerTurn = playerTurn;
-    }
+
 
 
 
